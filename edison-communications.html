@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edison Communications — Horizontal Directional Drilling & Underground Utility Construction | Milan, OH</title>
+<meta name="description" content="Trenchless underground utility construction across North Central Ohio. Horizontal directional drilling, conduit & fiber pathway installation, road crossings, and vacuum excavation — installed without tearing up the surface.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#17191c; --graphite-2:#1e2126; --steel:#262b31; --steel-2:#2f353d;
+    --soil:#211c15; --soil-2:#171310;
+    --amber:#ffbf00; --amber-2:#ffd451; --amber-deep:#d9a300;
+    --paper:#eef1f4; --gray:#9aa2ab; --gray-d:#5c646d;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+    --amber-line:rgba(255,191,0,.32);
+    --display:'Barlow Semi Condensed',sans-serif; --body:'Barlow',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--body);background:var(--graphite);color:var(--paper);line-height:1.65;font-size:17px;overflow-x:hidden}
+  ::selection{background:var(--amber);color:#000}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--mono)}
+
+  /* labels / headings */
+  .eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amber);display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber)}
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;letter-spacing:-.01em;text-transform:uppercase}
+  h2.head{font-size:clamp(32px,5vw,54px);color:#fff}
+  .lead{color:var(--gray);font-size:19px;max-width:60ch}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;
+    letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:15px 28px;border-radius:2px;
+    transition:transform .18s,background .25s,box-shadow .25s,color .25s;border:2px solid transparent}
+  .btn.amber{background:var(--amber);color:#000;box-shadow:0 0 0 rgba(255,191,0,0)}
+  .btn.amber:hover{background:var(--amber-2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,191,0,.22)}
+  .btn.ghost{border-color:var(--line-2);color:#fff}
+  .btn.ghost:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+  .btn svg{width:16px;height:16px}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .35s,box-shadow .35s,padding .35s;padding:20px 0}
+  header.nav.solid{background:rgba(23,25,28,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo .mark{width:34px;height:34px;flex:none}
+  .logo .txt{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.04em;line-height:.9;text-transform:uppercase}
+  .logo .txt small{display:block;font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.28em;color:var(--gray);text-transform:uppercase;margin-top:3px}
+  .nav-links{display:flex;align-items:center;gap:32px}
+  .nav-links a{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--gray);transition:color .2s;position:relative;padding:3px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--amber);transition:width .25s}
+  .nav-links a:hover{color:#fff}.nav-links a:hover::after{width:100%}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:2px;background:var(--amber);display:block}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:170px 0 80px;overflow:hidden;background:
+    radial-gradient(120% 80% at 80% 0%,rgba(255,191,0,.07),transparent 55%),var(--graphite)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero .tagchip{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);
+    border:1px solid var(--amber-line);border-radius:2px;padding:7px 12px;display:inline-flex;gap:8px;align-items:center;margin-bottom:26px}
+  .tagchip .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{font-size:clamp(44px,7vw,86px);color:#fff;margin-bottom:22px}
+  .hero h1 .u{color:var(--amber);position:relative;white-space:nowrap}
+  .hero .lead{margin-bottom:34px;font-size:20px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:0;margin-top:48px;border:1px solid var(--line);border-radius:3px;overflow:hidden;max-width:560px}
+  .hero-stats .st{flex:1;padding:18px 20px;border-right:1px solid var(--line)}
+  .hero-stats .st:last-child{border-right:none}
+  .hero-stats .n{font-family:var(--display);font-weight:800;font-size:26px;color:var(--amber);line-height:1}
+  .hero-stats .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-top:6px}
+
+  /* bore-path signature */
+  .bore{position:relative;width:100%;aspect-ratio:1/1;max-width:520px;margin-left:auto}
+  .bore svg{width:100%;height:100%;display:block}
+  .bore .cap{position:absolute;left:18px;top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--amber)}
+  .flow{stroke-dasharray:5 9;animation:flow 2.4s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-140}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .band{padding:104px 0}
+  .band-head{max-width:760px;margin-bottom:56px}
+  .band-head h2{margin:16px 0 18px}
+
+  /* SERVICES */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .svc{background:var(--graphite-2);border:1px solid var(--line);border-radius:4px;padding:30px 26px;position:relative;
+    transition:border-color .25s,transform .25s,background .25s;overflow:hidden}
+  .svc::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--amber);transition:width .3s}
+  .svc:hover{border-color:var(--line-2);transform:translateY(-4px);background:var(--steel)}
+  .svc:hover::before{width:100%}
+  .svc .ic{width:44px;height:44px;color:var(--amber);margin-bottom:20px}
+  .svc .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-d);margin-bottom:10px}
+  .svc h3{font-size:22px;color:#fff;margin-bottom:10px;letter-spacing:0}
+  .svc p{color:var(--gray);font-size:15.5px;line-height:1.55}
+
+  /* PROCESS */
+  .proc-band{background:linear-gradient(180deg,var(--graphite),var(--graphite-2))}
+  .proc{position:relative;margin-top:20px}
+  .proc-line{position:absolute;left:33px;top:20px;bottom:20px;width:2px;
+    background:linear-gradient(180deg,transparent,var(--amber-line),var(--amber-line),transparent)}
+  .step{position:relative;display:grid;grid-template-columns:68px 1fr;gap:26px;padding:22px 0}
+  .step .num{width:68px;height:68px;border-radius:50%;background:var(--graphite);border:2px solid var(--amber-line);
+    display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:26px;
+    color:var(--amber);position:relative;z-index:1;transition:border-color .25s,box-shadow .25s}
+  .step:hover .num{border-color:var(--amber);box-shadow:0 0 24px rgba(255,191,0,.25)}
+  .step .body{padding-top:6px}
+  .step .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-d);margin-bottom:7px}
+  .step h3{font-size:23px;color:#fff;margin-bottom:8px;letter-spacing:0}
+  .step p{color:var(--gray);font-size:15.5px;max-width:64ch}
+
+  /* WHY / TRENCHLESS */
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+  .compare{border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .compare .row{display:grid;grid-template-columns:1fr 1fr}
+  .compare .cell{padding:22px 24px;border-bottom:1px solid var(--line)}
+  .compare .cell.h{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:16px;letter-spacing:.03em}
+  .compare .cell:nth-child(odd){border-right:1px solid var(--line)}
+  .compare .cell.old{color:var(--gray)}
+  .compare .cell.old .t{color:var(--gray)}
+  .compare .cell.new .t{color:#fff}
+  .compare .h.old{background:var(--graphite-2);color:var(--gray)}
+  .compare .h.new{background:rgba(255,191,0,.08);color:var(--amber)}
+  .compare .t{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+  .compare .t svg{width:16px;height:16px;flex:none;margin-top:3px}
+  .why-copy .eyebrow{margin-bottom:18px}
+  .why-copy h2{margin-bottom:20px}
+  .why-copy p{color:var(--gray);margin-bottom:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);
+    border:1px solid var(--line-2);border-radius:2px;padding:9px 14px;display:inline-flex;gap:8px;align-items:center}
+  .chip svg{width:14px;height:14px;color:var(--amber)}
+
+  /* SERVICE AREA */
+  .area-band{background:var(--graphite-2)}
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+  .area-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-top:26px}
+  .area-list div{display:flex;gap:10px;align-items:center;font-size:16px;color:var(--paper)}
+  .area-list svg{width:14px;height:14px;color:var(--amber);flex:none}
+  .area-note{font-family:var(--mono);font-size:12.5px;color:var(--gray);margin-top:26px;letter-spacing:.04em}
+
+  /* CONTACT */
+  .cta-band{background:
+    radial-gradient(90% 130% at 50% 0%,rgba(255,191,0,.09),transparent 60%),var(--graphite);
+    border-top:1px solid var(--line);text-align:center;padding:110px 0}
+  .cta-band h2{margin:16px 0 18px;font-size:clamp(34px,5.5vw,60px)}
+  .cta-band .lead{margin:0 auto 20px}
+  .cta-phone{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,50px);color:var(--amber);letter-spacing:.02em;
+    display:inline-block;margin:20px 0 8px}
+  .cta-phone:hover{color:var(--amber-2)}
+  .cta-sub{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:30px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:var(--soil-2);border-top:1px solid var(--line);padding:56px 0 30px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+  .foot-brand .logo{margin-bottom:16px}
+  .foot-brand p{color:var(--gray);font-size:15px;max-width:38ch}
+  .foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
+  .foot-col a,.foot-col p{display:block;color:var(--gray);font-size:15px;margin-bottom:9px}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:24px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--gray-d)}
+  .foot-bottom a{color:var(--gray-d)}.foot-bottom a:hover{color:var(--amber)}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .rv.in{opacity:1;transform:none}
+
+  @media(max-width:940px){
+    .hero-grid,.why-grid,.area-grid{grid-template-columns:1fr;gap:44px}
+    .bore{margin:0 auto;max-width:440px}
+    .svc-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    .nav-links{display:none}.burger{display:flex}
+    .svc-grid{grid-template-columns:1fr}
+    .hero-stats{flex-wrap:wrap}.hero-stats .st{min-width:50%;border-bottom:1px solid var(--line)}
+    .compare .cell{padding:16px}
+    .area-list,.foot-top{grid-template-columns:1fr}
+    .band{padding:76px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- reusable icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-drill" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34c8-14 28-14 36 0"/><path d="M6 40h36"/><circle cx="24" cy="20" r="3"/><path d="M24 23v6"/></symbol>
+  <symbol id="i-conduit" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h36"/><circle cx="12" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="36" cy="24" r="4"/></symbol>
+  <symbol id="i-road" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8 10 40M32 8l6 32M24 12v4M24 22v4M24 32v4"/></symbol>
+  <symbol id="i-vac" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 40V22a8 8 0 0 1 16 0v18"/><path d="M28 26h8v14"/><path d="M8 40h32"/></symbol>
+  <symbol id="i-locate" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="5"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6"/></symbol>
+  <symbol id="i-restore" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34h36"/><path d="M14 34V22M24 34V16M34 34V26"/><path d="M10 16c6-6 22-6 28 0"/></symbol>
+</svg>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Edison Communications home">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" rx="3" stroke="#ffbf00" stroke-width="2"/>
+        <path d="M7 27c5-11 21-11 26 0" stroke="#ffbf00" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="20" cy="17.5" r="2.6" fill="#ffbf00"/>
+        <path d="M9 31h22" stroke="#565c63" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span class="txt">Edison<small>Underground · HDD</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Edison</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn amber" href="#contact" style="padding:11px 20px">Request a Quote</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="tagchip"><span class="dot"></span>Trenchless · No surface digging</span>
+      <h1>We put the network <span class="u">underground.</span></h1>
+      <p class="lead">Edison Communications is an underground utility contractor specializing in <strong style="color:var(--paper)">horizontal directional drilling</strong> — installing conduit, fiber, and utility lines beneath roads, driveways, and landscaping without tearing up the surface.</p>
+      <div class="hero-cta">
+        <a class="btn amber" href="#contact">Request a Quote <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="#services">What We Do</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><div class="n">Trenchless</div><div class="l">Minimal disruption</div></div>
+        <div class="st"><div class="n">Since ’18</div><div class="l">Milan, Ohio</div></div>
+        <div class="st"><div class="n">Locally<br>Owned</div><div class="l">Licensed &amp; insured</div></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE: bore-path cross-section -->
+    <div class="bore rv">
+      <span class="cap">Bore Path · Cross-Section</span>
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross-section diagram of a horizontal directional drill boring beneath a road and pulling conduit underground without a trench">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1e2126"/><stop offset="1" stop-color="#191c20"/>
+          </linearGradient>
+          <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#241f18"/><stop offset="1" stop-color="#14100b"/>
+          </linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="3.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- sky / above ground -->
+        <rect x="0" y="0" width="520" height="150" fill="url(#sky)"/>
+        <!-- earth -->
+        <rect x="0" y="150" width="520" height="370" fill="url(#earth)"/>
+        <!-- soil strata -->
+        <line x1="0" y1="212" x2="520" y2="212" stroke="#ffffff" stroke-opacity=".04"/>
+        <line x1="0" y1="288" x2="520" y2="288" stroke="#ffffff" stroke-opacity=".04"/>
+        <line x1="0" y1="372" x2="520" y2="372" stroke="#ffffff" stroke-opacity=".04"/>
+        <!-- surface line -->
+        <line x1="0" y1="150" x2="520" y2="150" stroke="#565c63" stroke-width="2"/>
+
+        <!-- surface features: tree, road, building (undisturbed) -->
+        <g stroke="#565c63" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M70 150v-26"/><circle cx="70" cy="112" r="15" stroke="#6b7178"/>
+          <!-- road -->
+          <path d="M212 150h96" stroke="#3a4048" stroke-width="10"/>
+          <path d="M230 150h20M270 150h20" stroke="#ffbf00" stroke-opacity=".5" stroke-width="2"/>
+          <!-- building -->
+          <path d="M430 150v-40h44v40" stroke="#6b7178"/><path d="M442 150v-24h20v24"/>
+        </g>
+        <text x="248" y="140" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#9aa2ab" letter-spacing="1">ROAD</text>
+
+        <!-- entry & exit pits -->
+        <circle cx="46" cy="150" r="6" fill="#ffbf00"/>
+        <circle cx="474" cy="150" r="6" fill="#ffbf00"/>
+        <text x="46" y="176" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#ffbf00">ENTRY</text>
+        <text x="474" y="176" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#ffbf00">EXIT</text>
+
+        <!-- the bore path (arc under everything) -->
+        <path id="borepath" d="M46 150 C 120 300, 180 400, 260 400 S 400 300, 474 150"
+              fill="none" stroke="#ffbf00" stroke-width="3" filter="url(#glow)"/>
+        <!-- conduit being pulled (flow dashes) -->
+        <path d="M46 150 C 120 300, 180 400, 260 400 S 400 300, 474 150"
+              fill="none" stroke="#ffd451" stroke-width="1.4" class="flow" stroke-opacity=".9"/>
+
+        <!-- depth markers -->
+        <g font-family="JetBrains Mono" font-size="10" fill="#9aa2ab">
+          <line x1="260" y1="150" x2="260" y2="400" stroke="#ffbf00" stroke-opacity=".18" stroke-dasharray="3 5"/>
+          <text x="268" y="404">−48&quot; depth</text>
+        </g>
+
+        <!-- traveling drill head -->
+        <circle r="7" fill="#fff" filter="url(#glow)">
+          <animateMotion dur="4.6s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#borepath"/>
+          </animateMotion>
+        </circle>
+        <circle r="13" fill="none" stroke="#ffbf00" stroke-width="1.5" opacity=".6">
+          <animateMotion dur="4.6s" repeatCount="indefinite">
+            <mpath href="#borepath"/>
+          </animateMotion>
+        </circle>
+
+        <text x="260" y="470" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#565c63" letter-spacing="2">SURFACE UNDISTURBED</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="band-head rv">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="head">Underground utility construction</h2>
+      <p class="lead">From the pilot bore to final restoration — the full underground scope, done by one crew that owns the outcome.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rv"><svg class="ic"><use href="#i-drill"/></svg><div class="tag">// 01 · Core specialty</div><h3>Horizontal Directional Drilling</h3><p>Steerable, trenchless boring that installs conduit and pipe beneath obstacles — no open trench, no torn-up ground.</p></div>
+      <div class="svc rv"><svg class="ic"><use href="#i-conduit"/></svg><div class="tag">// 02</div><h3>Conduit &amp; Fiber Pathway</h3><p>Installation of duct, innerduct, and fiber pathways for telecom, ISP, and utility carriers across the run.</p></div>
+      <div class="svc rv"><svg class="ic"><use href="#i-road"/></svg><div class="tag">// 03</div><h3>Road &amp; Driveway Crossings</h3><p>Bore cleanly under pavement, curbs, and driveways — no cutting, no patching, no closing the road for days.</p></div>
+      <div class="svc rv"><svg class="ic"><use href="#i-locate"/></svg><div class="tag">// 04</div><h3>Utility Locating &amp; Bore Design</h3><p>Public and private locates plus a planned bore path that keeps clear of existing gas, water, power, and comms.</p></div>
+      <div class="svc rv"><svg class="ic"><use href="#i-vac"/></svg><div class="tag">// 05</div><h3>Vacuum Excavation &amp; Potholing</h3><p>Non-destructive daylighting to safely expose and verify existing utilities before the drill ever starts.</p></div>
+      <div class="svc rv"><svg class="ic"><use href="#i-restore"/></svg><div class="tag">// 06</div><h3>Restoration</h3><p>Small entry and exit pits are backfilled and the surface returned the way we found it. Neighbors barely notice.</p></div>
+    </div>
+    <p class="mono rv" style="margin-top:34px;color:var(--gray-d);font-size:13px;letter-spacing:.05em">// Representative scope — final services confirmed with the crew.</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="band proc-band" id="process">
+  <div class="wrap">
+    <div class="band-head rv">
+      <span class="eyebrow">How A Bore Runs</span>
+      <h2 class="head">The drilling process</h2>
+      <p class="lead">A directional bore is a controlled sequence. Here's how a job moves from the first locate to a live line in the ground.</p>
+    </div>
+    <div class="proc">
+      <div class="proc-line" aria-hidden="true"></div>
+      <div class="step rv"><div class="num">1</div><div class="body"><div class="tag">// SITE SURVEY</div><h3>Locate &amp; Plan</h3><p>Existing utilities are located and marked, and the bore path is designed with the right depth, entry, and exit points.</p></div></div>
+      <div class="step rv"><div class="num">2</div><div class="body"><div class="tag">// PILOT BORE</div><h3>Drill the Pilot Hole</h3><p>A steerable drill head bores the planned path underground, tracked from the surface to hold line and grade.</p></div></div>
+      <div class="step rv"><div class="num">3</div><div class="body"><div class="tag">// REAMING</div><h3>Back-Ream the Path</h3><p>The bore is enlarged to the diameter the product line needs, conditioning the hole for a clean pullback.</p></div></div>
+      <div class="step rv"><div class="num">4</div><div class="body"><div class="tag">// PULLBACK</div><h3>Pull the Conduit</h3><p>Conduit, duct, or pipe is pulled back through the bore in one continuous run — no trench opened along the way.</p></div></div>
+      <div class="step rv"><div class="num">5</div><div class="body"><div class="tag">// VERIFY</div><h3>Test &amp; Prove</h3><p>The installed line is checked end to end and proofed so it's ready to hand off to the carrier or utility.</p></div></div>
+      <div class="step rv"><div class="num">6</div><div class="body"><div class="tag">// RESTORE</div><h3>Restore the Site</h3><p>Entry and exit pits are backfilled and graded, and the surface is put back the way it started.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / TRENCHLESS -->
+<section class="band" id="why">
+  <div class="wrap why-grid">
+    <div class="why-copy rv">
+      <span class="eyebrow">Why Trenchless</span>
+      <h2 class="head">Less mess. Less downtime.</h2>
+      <p>Open-cut trenching means closed roads, torn-up yards, and days of repair. Directional drilling installs the same line through a bore no wider than the product — so the surface above stays intact.</p>
+      <p>For carriers, municipalities, and property owners, that means fewer permits held up, less restoration to pay for, and a job that's in and out.</p>
+      <div class="chips">
+        <span class="chip"><svg><use href="#i-check"/></svg>No road closures</span>
+        <span class="chip"><svg><use href="#i-check"/></svg>Faster turnaround</span>
+        <span class="chip"><svg><use href="#i-check"/></svg>Lower restoration cost</span>
+        <span class="chip"><svg><use href="#i-check"/></svg>Licensed &amp; insured</span>
+      </div>
+    </div>
+    <div class="compare rv">
+      <div class="row">
+        <div class="cell h old">Open-Cut Trench</div>
+        <div class="cell h new">Directional Drill</div>
+      </div>
+      <div class="row">
+        <div class="cell old"><span class="t"><svg><use href="#i-x"/></svg><span>Surface dug up the whole run</span></span></div>
+        <div class="cell new"><span class="t"><svg style="color:var(--amber)"><use href="#i-check"/></svg><span>Only small entry &amp; exit pits</span></span></div>
+      </div>
+      <div class="row">
+        <div class="cell old"><span class="t"><svg><use href="#i-x"/></svg><span>Roads &amp; driveways closed</span></span></div>
+        <div class="cell new"><span class="t"><svg style="color:var(--amber)"><use href="#i-check"/></svg><span>Traffic keeps moving above</span></span></div>
+      </div>
+      <div class="row">
+        <div class="cell old" style="border-bottom:none"><span class="t"><svg><use href="#i-x"/></svg><span>Heavy restoration bill</span></span></div>
+        <div class="cell new" style="border-bottom:none"><span class="t"><svg style="color:var(--amber)"><use href="#i-check"/></svg><span>Minimal cleanup, quick close-out</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="band area-band" id="area">
+  <div class="wrap area-grid">
+    <div class="rv">
+      <span class="eyebrow">Where We Work</span>
+      <h2 class="head" style="margin:16px 0 18px">North Central Ohio</h2>
+      <p class="lead">Based in Milan and working across the surrounding counties. If your run is in the region, we can get to it.</p>
+      <div class="area-list">
+        <div><svg><use href="#i-pin"/></svg>Milan &amp; Erie County</div>
+        <div><svg><use href="#i-pin"/></svg>Sandusky</div>
+        <div><svg><use href="#i-pin"/></svg>Norwalk &amp; Huron County</div>
+        <div><svg><use href="#i-pin"/></svg>Lorain County</div>
+        <div><svg><use href="#i-pin"/></svg>Bellevue &amp; Clyde</div>
+        <div><svg><use href="#i-pin"/></svg>Vermilion</div>
+      </div>
+      <p class="area-note">// Outside the area? Reach out — larger runs, we'll travel.</p>
+    </div>
+    <div class="rv" style="text-align:center">
+      <svg viewBox="0 0 360 300" style="width:100%;max-width:380px" role="img" aria-label="Stylized service-area map centered on Milan, Ohio">
+        <rect x="1" y="1" width="358" height="298" rx="4" fill="#17191c" stroke="rgba(255,255,255,.08)"/>
+        <g stroke="rgba(255,255,255,.05)"><path d="M0 75h360M0 150h360M0 225h360M90 0v300M180 0v300M270 0v300"/></g>
+        <!-- routes -->
+        <g stroke="#ffbf00" stroke-opacity=".4" stroke-width="1.4" fill="none" stroke-dasharray="4 6">
+          <path d="M180 150 L90 80"/><path d="M180 150 L285 95"/><path d="M180 150 L110 215"/><path d="M180 150 L260 220"/><path d="M180 150 L300 165"/>
+        </g>
+        <!-- nodes -->
+        <g fill="#565c63" font-family="JetBrains Mono" font-size="9">
+          <circle cx="90" cy="80" r="3"/><text x="86" y="70" text-anchor="middle" fill="#9aa2ab">Lorain</text>
+          <circle cx="285" cy="95" r="3"/><text x="285" y="85" text-anchor="middle" fill="#9aa2ab">Sandusky</text>
+          <circle cx="110" cy="215" r="3"/><text x="110" y="232" text-anchor="middle" fill="#9aa2ab">Norwalk</text>
+          <circle cx="260" cy="220" r="3"/><text x="260" y="237" text-anchor="middle" fill="#9aa2ab">Clyde</text>
+          <circle cx="300" cy="165" r="3"/><text x="300" y="155" text-anchor="middle" fill="#9aa2ab">Vermilion</text>
+        </g>
+        <!-- Milan hub -->
+        <circle cx="180" cy="150" r="20" fill="none" stroke="#ffbf00" stroke-opacity=".3"><animate attributeName="r" values="14;26;14" dur="3s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".4;0;.4" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="180" cy="150" r="7" fill="#ffbf00"/>
+        <text x="180" y="182" text-anchor="middle" font-family="Barlow Semi Condensed" font-weight="800" font-size="15" fill="#fff">MILAN, OH</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">Start A Job</span>
+    <h2 class="head">Got a run that needs to go under?</h2>
+    <p class="lead">Tell us the site and the distance — we'll walk the bore and get you a quote.</p>
+    <a class="cta-phone" href="tel:+14190000000">(419) 000-0000</a>
+    <div class="cta-sub">Mon–Fri · Free estimates · Milan, Ohio</div>
+    <div class="cta-row">
+      <a class="btn amber" href="tel:+14190000000">Call for a Quote <svg><use href="#i-arrow"/></svg></a>
+      <a class="btn ghost" href="mailto:office@edisoncommunications.com">Email the Crew</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="3" stroke="#ffbf00" stroke-width="2"/><path d="M7 27c5-11 21-11 26 0" stroke="#ffbf00" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="17.5" r="2.6" fill="#ffbf00"/><path d="M9 31h22" stroke="#565c63" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <span class="txt">Edison<small>Underground · HDD</small></span>
+        </a>
+        <p>Underground utility construction &amp; horizontal directional drilling. Milan, Ohio.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Directional Drilling</a>
+        <a href="#services">Conduit &amp; Fiber Pathway</a>
+        <a href="#services">Road Crossings</a>
+        <a href="#services">Vacuum Excavation</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+14190000000">(419) 000-0000</a>
+        <a href="mailto:office@edisoncommunications.com">office@edisoncommunications.com</a>
+        <p>Milan, OH 44846</p>
+        <a href="https://www.facebook.com/p/Edison-Communications-LLC-100093532956418/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Edison Communications LLC — Milan, Ohio</span>
+      <span>Preview site designed by <a href="#top">Mil Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('solid',window.scrollY>36);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  document.getElementById('burger').onclick=()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
